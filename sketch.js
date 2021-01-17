@@ -17,6 +17,10 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 
+	var opt={
+		isStatic: true
+	}
+
 
 	engine = Engine.create();
 	world = engine.world;
@@ -30,11 +34,11 @@ function setup() {
 	bob4= new bob(450,400,25);
 	bob5 = new bob(500,400,25);
 
-	rope1 = new rope(bob1.x,upRoof.gr,300);
-	rope2 = new rope(bob2.x,upRoof.gr,350);
-	rope4 = new rope(bob3.x,upRoof.gr,400);
-	rope5 = new rope(bob4.x,upRoof.gr,450);
-	rope3 = new rope(bob5.x,upRoof.gr,500);
+	rope1 = new rope(bob1.x,upRoof.gr,100);
+	rope2 = new rope(bob2.x,upRoof.gr,150);
+	rope4 = new rope(bob3.x,upRoof.gr,200);
+	rope5 = new rope(bob4.x,upRoof.gr,250);
+	rope3 = new rope(bob5.x,upRoof.gr,300);
 
 
 	Engine.run(engine);
@@ -60,14 +64,13 @@ function draw() {
   rope5.display();
   
   drawSprites();
-  keyPressed();
   
  
 }
 
 function keyPressed() {
 	if(keyCode === 38) {
-		Matter.Body.applyForce(bob1.x,bob1.x.position,{x:95,y:-95});
+		Matter.Body.applyForce(bob1.x,bob1.x.position,{x:-75,y:0});
 	}
 }
 
